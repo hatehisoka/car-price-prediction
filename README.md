@@ -45,28 +45,56 @@ ML-додаток, що прогнозує ціну вживаного авто 
 
 ## ⚡ Швидкий старт
 
-### 1. Бекенд
+### 🚀 Автоматичний (рекомендовано)
 
+**macOS / Linux:**
 ```bash
-cd car_price_project
-python3 -m venv .venv
-source .venv/bin/activate          # Linux/macOS
-# .venv\Scripts\activate           # Windows
-pip install -r requirements.txt
-
-python train_model.py              # тренує модель (~30 сек)
-uvicorn main:app --reload          # API на :8000
+git clone https://github.com/hatehisoka/car-price-prediction.git
+cd car-price-prediction
+bash setup.sh
 ```
 
-### 2. Фронтенд
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/hatehisoka/car-price-prediction.git
+cd car-price-prediction
+.\setup.ps1
+```
+
+Скрипт сам створить venv, встановить Python- і npm-залежності, натренує модель і зніме macOS-карантин з нативних бінарників. Після завершення — запусти бекенд і фронт у двох терміналах:
 
 ```bash
+# Термінал 1
+source .venv/bin/activate            # Windows: .venv\Scripts\activate
+uvicorn main:app --reload
+
+# Термінал 2
+cd frontend && npm run dev
+```
+
+Відкрий `http://localhost:5173`.
+
+### 🔧 Ручний (якщо щось не так зі скриптом)
+
+```bash
+# Бекенд
+python3 -m venv .venv
+source .venv/bin/activate            # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python train_model.py                # тренує модель (~30 сек)
+uvicorn main:app --reload            # API на :8000
+
+# Фронтенд (інший термінал)
 cd frontend
 npm install
-npm run dev                        # Vite на :5173
+npm run dev                          # Vite на :5173
 ```
 
-Відкрийте `http://localhost:5173`.
+### Передумови
+
+- **Python ≥ 3.10** (тренувалося на 3.13)
+- **Node.js ≥ 20** (потрібно для Vite 8)
+- ~500 МБ вільного місця (з venv і node_modules)
 
 ---
 
