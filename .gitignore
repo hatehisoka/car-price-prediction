@@ -1,0 +1,38 @@
+# ───── Python ─────
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# ───── ML-артефакти (регенеруються `python train_model.py`) ─────
+*.pkl
+model_metrics.json
+
+# ───── Логи ─────
+logs/
+*.log
+
+# ───── IDE / OS ─────
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ───── Plan files (Claude Code) ─────
+.claude/
+
+# ───── Node (на випадок, якщо ставиться в корені) ─────
+node_modules/
+
+# ───── Збірка ─────
+dist/
+build/

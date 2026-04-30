@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display",
+    "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #0f172a;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(16, 185, 129, 0.20), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(34, 197, 94, 0.16), transparent 60%),
+    radial-gradient(700px 500px at 50% 120%, rgba(20, 184, 166, 0.18), transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
+  background-attachment: fixed;
+}
+
+/* Slider styling — money green */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #059669 var(--p, 50%), #e2e8f0 var(--p, 50%));
+  outline: none;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #059669;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.35);
+  cursor: grab;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.range::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 14px rgba(5, 150, 105, 0.45);
+}
+.range::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.2);
+}
+.range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #059669;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.35);
+  cursor: grab;
+}
+
+/* Animations */
+@keyframes pop-in {
+  0%   { opacity: 0; transform: translateY(10px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0)    scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+.animate-shake {
+  animation: shake 320ms ease-in-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin 800ms linear infinite;
+}
+
+/* Subtle scrollbar inside dropdowns */
+.scroll-soft::-webkit-scrollbar { width: 8px; }
+.scroll-soft::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+  border-radius: 999px;
+}

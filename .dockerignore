@@ -1,0 +1,12 @@
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.git
+.idea
+frontend
+logs
+*.pkl
+model_metrics.json
+README.md
+tests
