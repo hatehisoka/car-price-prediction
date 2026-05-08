@@ -97,8 +97,8 @@ class CarFeatures(BaseModel):
                            ge=LIMITS["mileage"]["min"], le=LIMITS["mileage"]["max"])
     engV: float = Field(default=2.0,
                         ge=LIMITS["engV"]["min"], le=LIMITS["engV"]["max"])
-    body: Optional[str] = "sedan"
-    drive: Optional[str] = "front"
+    body: Optional[str] = "crossover"
+    drive: Optional[str] = "full"
 
     @field_validator('year')
     def validate_year(cls, v):
